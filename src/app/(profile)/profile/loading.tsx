@@ -7,11 +7,9 @@ export default function LoadingPage() {
 	return (
 		<Box sx={{ display: 'flex', flexDirection: "column", gap: '2rem' }}>
 			<Breadcrumbs aria-label="breadcrumb">
-				<NextLink href="/" passHref >
-					<Link underline="hover" color="inherit" >
-						Home
-					</Link>
-				</NextLink>
+				<Link component={NextLink} underline="hover" color="inherit" href={'/'} >
+					Home
+				</Link>
 				<Typography sx={{ color: 'text.primary' }}>Profile</Typography>
 			</Breadcrumbs>
 			<Card sx={{ maxWidth: 600, padding: "1rem" }}>
@@ -23,6 +21,7 @@ export default function LoadingPage() {
 					</Box>
 				</Box>
 				<Divider sx={{ marginY: "1.5rem" }} />
+				<Skeleton variant="rounded" width={300} height={30} />
 				<Typography color="secondary" fontWeight='bold'>
 					Company Expected Activity
 				</Typography>

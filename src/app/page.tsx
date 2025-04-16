@@ -87,7 +87,7 @@ export default function Home() {
             <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
               <TextField
                 label="Email"
-                variant="outlined"
+                variant="filled"
                 type='email'
                 name='email'
                 value={formik.values.email}
@@ -99,7 +99,7 @@ export default function Home() {
               />
               <TextField
                 label="Password"
-                variant="outlined"
+                variant="filled"
                 type='password'
                 name='password'
                 value={formik.values.password}

@@ -1,11 +1,12 @@
 import { TUserProfile } from "@/app/types"
+import NextLink from 'next/link'
 import { Avatar, Box, Card, Typography, Breadcrumbs, Link, Divider } from "@mui/material"
 
 export default function Profile({ profile }: { profile: TUserProfile }) {
 	return (
 		<Box sx={{ display: 'flex', flexDirection: "column", gap: '2rem' }}>
 			<Breadcrumbs aria-label="breadcrumb">
-				<Link underline="hover" color="inherit" href="/">
+				<Link component={NextLink} underline="hover" color="inherit" href="/">
 					Home
 				</Link>
 				<Typography sx={{ color: 'text.primary' }}>Profile</Typography>
@@ -21,6 +22,9 @@ export default function Profile({ profile }: { profile: TUserProfile }) {
 					</Box>
 				</Box>
 				<Divider sx={{ marginY: "1.5rem" }} />
+				<Typography fontWeight='bold'>
+					{profile.business_name}
+				</Typography>
 				<Typography color="secondary" fontWeight='bold'>
 					Company Expected Activity
 				</Typography>
