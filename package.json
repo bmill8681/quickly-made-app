@@ -16,6 +16,7 @@
     "cookie": "^1.0.2",
     "formik": "^2.4.6",
     "jose": "^6.0.10",
+    "lodash.get": "^4.4.2",
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/lodash.get": "^4.4.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

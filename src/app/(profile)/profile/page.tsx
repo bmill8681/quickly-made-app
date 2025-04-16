@@ -1,27 +1,19 @@
-'use client'
 import { NextPage } from "next"
-import { useRouter } from "next/navigation"
+import { fetchProfile } from "@/app/actions/fetchProfile"
+import { TUserProfile } from '@/app/types'
+import Profile from "./components/Profile"
 
-import Box from "@mui/material/Box"
-import Button from '@mui/material/Button'
-import Typography from "@mui/material/Typography"
 
-const ProfilePage: NextPage = () => {
-	/* #region TEMPORARY */
-	const router = useRouter();
-	const handleLogout = () => {
-		fetch('/api/auth/logout')
-			.then(() => { router.replace('/') })
-			.catch(err => { console.log(err?.message || "something went wrong") })
-	}
-	/* #endregion TEMPORARY */
+
+const ProfilePage: NextPage = async () => {
+	const profile: TUserProfile | null = await fetchProfile()
+
+	if (!profile) throw new Error("Unable to fetch profile.")
+
 	return (
-		<Box>
-			<Typography> Profile Page </Typography>
-
-			<Button onClick={handleLogout}>Logout</Button>
-
-		</Box>
+		<>
+			<Profile profile={profile} />
+		</>
 	)
 }
 

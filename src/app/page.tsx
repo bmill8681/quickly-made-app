@@ -1,13 +1,14 @@
 'use client'
 import { useState, useMemo, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import CircularProgress from '@mui/material/CircularProgress';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  TextField,
+  Typography
+} from '@mui/material';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 
@@ -72,7 +73,6 @@ export default function Home() {
   }
 
   const ctaCopy = useMemo(() => {
-    if (formState === FORM_STATE.LOADING) return <CircularProgress size={24} />
     if (formState === FORM_STATE.COMPLETE) return "Success!"
     return "Login"
   }, [formState])
@@ -113,6 +113,7 @@ export default function Home() {
                 type='submit'
                 sx={{ width: "100%" }}
                 disabled={formState !== FORM_STATE.IDLE}
+                loading={formState === FORM_STATE.LOADING}
               >
                 {ctaCopy}
               </Button>
