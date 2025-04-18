@@ -7,3 +7,9 @@ export type TUserProfile = {
 	CompanyId: string
 	avatar_url: string
 }
+
+export type LoginResponse = {
+	success: boolean
+	message: string
+	token?: string
+}

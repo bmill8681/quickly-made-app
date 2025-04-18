@@ -15,11 +15,11 @@ export async function POST(req: NextRequest) {
 	try {
 		const { email, password } = await req.json()
 		const loginResp = await login({ email, password })
-
+		
 		if (!loginResp?.success) {
 			return NextResponse.json({ message: "Invalid credentials." }, { status: 401 })
 		}
-		const sessionCreated = await createSession(loginResp.token)
+		const sessionCreated = await createSession(loginResp.token as string)
 
 		if (!sessionCreated) throw new Error("Failed to create session")
 			

@@ -5,6 +5,11 @@ import { Avatar, Box, Card, Typography, Breadcrumbs, Link, Divider } from "@mui/
 export default function Profile({ profile }: { profile: TUserProfile }) {
 	return (
 		<Box sx={{ display: 'flex', flexDirection: "column", gap: '2rem' }}>
+			{/*
+			*	Note: Breadcrumbs here don't make much sense because the home page
+			*	redirects to the profile page. I've included them as a good practice to
+			*	have for page navigation. These may be included or excluded based on UX.
+			*/}
 			<Breadcrumbs aria-label="breadcrumb">
 				<Link component={NextLink} underline="hover" color="inherit" href="/">
 					Home

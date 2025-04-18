@@ -50,16 +50,17 @@ export default function Home() {
     onSubmit: (values) => {
       setFormState(FORM_STATE.LOADING)
       fetch('/api/auth/login', { method: "POST", body: JSON.stringify(values) })
-        // login(values)
-        .then(() => {
-          // setFormState(FORM_STATE.IDLE)
+        .then((resp) => {
+          // TODO: This is returning as a resolved promise.. should improve the response handling here. 
+          // Perhaps only use server actions rather than an api route, though that may lead to a page refresh due to cookie management.
+          if (resp.status !== 200) throw resp;
           setFormState(FORM_STATE.COMPLETE)
           router.replace("/profile")
 
         })
         .catch(err => {
           setFormState(FORM_STATE.IDLE)
-          setError(err?.message ?? "Invalid credentials.")
+          setError(err?.message ?? "Invalid credentials.. Please try again.")
         })
 
     },
